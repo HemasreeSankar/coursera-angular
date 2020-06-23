@@ -1,0 +1,29 @@
+
+<link rel="stylesheet" href="css/styles.css">
+<div class="myinfo" ng-hide =myInfoCtrl.signupWarning>
+
+    Welcome {{myInfoCtrl.information.FirstName }} {{myInfoCtrl.information.LastName }} !!!!!
+    <div> Verify Your Personal Details</div><br>
+    MailId                   : {{myInfoCtrl.information.MailId}}<br>
+    Favorite Dish Short Name : {{myInfoCtrl.information.FavoriteDish}}<br>
+    PhoneNo                  : {{myInfoCtrl.information.Phone}}<br>
+</div>
+<a><div ng-if=myInfoCtrl.signupWarning ui-sref="public.signup">{{myInfoCtrl.signupWarning}}</div></a>
+<div class="menu-item-tile col-md-6">
+  <div class="row">
+    <div class="col-sm-5">
+      <div class="menu-item-photo">
+        <div>{{myInfoCtrl.menuItem.short_name}}</div>
+        <img class="img-responsive" width="250" height="150" ng-src="{{myInfoCtrl.basePath}}/images/{{myInfoCtrl.menuItem.short_name}}.jpg" alt="{{myInfoCtrl.menuItem.name}}">
+      </div>
+      <div class="menu-item-price">{{myInfoCtrl.menuItem.price_small | currency}}<span> {{myInfoCtrl.menuItem.small_portion_name}}</span> {{$ctrl.menuItem.price_large | currency}} <span>{{$ctrl.menuItem.large_portion_name}}</span></div>
+    </div>
+    <div class="menu-item-description col-sm-7">
+      <h3 class="menu-item-title">{{myInfoCtrl.menuItem.name}}</h3>
+      <p class="menu-item-details">{{myInfoCtrl.menuItem.description}}</p>
+    </div>
+  </div>
+  <hr class="visible-xs">
+</div>
+
+<div class="error" ng-if=myInfoCtrl.warning>{{myInfoCtrl.warning}}</div>
